@@ -10,6 +10,9 @@ fetch("resultados.json")
     const colores = Object.keys(data.frecuencia_color);
     const valores = Object.values(data.frecuencia_color);
 
+    // Paleta de colores: Verde, Morado, Azul
+    const coloresPaleta = ["#22C55E", "#8B5CF6", "#3B82F6"];
+
     // Gráfica de barras
     new Chart(document.getElementById("barras"), {
       type: "bar",
@@ -18,25 +21,34 @@ fetch("resultados.json")
         datasets: [{
           label: "Frecuencia Absoluta",
           data: valores,
-          backgroundColor: ["#1E90FF", "#00CED1", "#4169E1"],
-          borderColor: "#0F3460",
-          borderWidth: 1
+          backgroundColor: coloresPaleta,
+          borderColor: "#1F2937",
+          borderWidth: 1,
+          borderRadius: 12
         }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true
       }
     });
 
     // Diagrama de pastel
     new Chart(document.getElementById("pastel"), {
-      type: "pie",
+      type: "doughnut",
       data: {
         labels: colores,
         datasets: [{
           label: "Frecuencia Relativa",
           data: Object.values(data.frecuencia_relativa),
-          backgroundColor: ["#1E90FF", "#00CED1", "#4169E1"],
+          backgroundColor: coloresPaleta,
           borderColor: "white",
-          borderWidth: 1
+          borderWidth: 2
         }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true
       }
     });
 
@@ -48,14 +60,20 @@ fetch("resultados.json")
         datasets: [{
           label: "Frecuencia Acumulada",
           data: Object.values(data.frecuencia_acumulada),
-          borderColor: "#00CED1",
-          backgroundColor: "rgba(0, 206, 209, 0.1)",
+          borderColor: "#8B5CF6",
+          backgroundColor: "rgba(139, 92, 246, 0.1)",
           fill: true,
           borderWidth: 2,
-          pointBackgroundColor: "#1E90FF",
-          pointRadius: 4,
+          pointBackgroundColor: "#22C55E",
+          pointBorderColor: "white",
+          pointBorderWidth: 2,
+          pointRadius: 5,
           tension: 0.3
         }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true
       }
     });
   });

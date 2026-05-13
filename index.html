@@ -5,14 +5,33 @@
   <title>Estadísticas de Datos</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Resultados del Análisis</h1>
-  <div id="estadisticas"></div>
+  <div class="container">
+    <header>
+      <h1>Análisis de Datos</h1>
+    </header>
+    
+    <div class="stats-box">
+      <div id="estadisticas"></div>
+    </div>
 
-  <canvas id="barras"></canvas>
-  <canvas id="pastel"></canvas>
-  <canvas id="poligono"></canvas>
+    <div class="graficas-grid">
+      <div class="grafica-container">
+        <h2>Frecuencia Absoluta</h2>
+        <canvas id="barras"></canvas>
+      </div>
+      <div class="grafica-container">
+        <h2>Frecuencia Relativa</h2>
+        <canvas id="pastel"></canvas>
+      </div>
+      <div class="grafica-container full-width">
+        <h2>Frecuencia Acumulada</h2>
+        <canvas id="poligono"></canvas>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

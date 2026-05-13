@@ -12,8 +12,54 @@ fetch("resultados.json")
 
     // Paleta de colores: Verde, Morado, Azul
     const coloresPaleta = ["#22C55E", "#8B5CF6", "#3B82F6"];
+    const coloresSecundarios = ["#DCF4E8", "#EDE9FE", "#DBEAFE"];
 
-    // Gráfica de barras
+    // Gráfica de línea (Frecuencia Acumulada)
+    new Chart(document.getElementById("poligono"), {
+      type: "line",
+      data: {
+        labels: colores,
+        datasets: [{
+          label: "Frecuencia Acumulada",
+          data: Object.values(data.frecuencia_acumulada),
+          borderColor: "#22C55E",
+          backgroundColor: "rgba(34, 197, 94, 0.15)",
+          fill: true,
+          borderWidth: 3,
+          pointBackgroundColor: "#22C55E",
+          pointBorderColor: "white",
+          pointBorderWidth: 3,
+          pointRadius: 7,
+          pointStyle: "circle",
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: "#22C55E",
+              font: { size: 12, weight: "600" },
+              padding: 15
+            }
+          }
+        },
+        scales: {
+          y: {
+            ticks: { color: "#6B7280" },
+            grid: { color: "rgba(34, 197, 94, 0.1)" }
+          },
+          x: {
+            ticks: { color: "#6B7280" }
+          }
+        }
+      }
+    });
+
+    // Gráfica de barras (Frecuencia Absoluta)
     new Chart(document.getElementById("barras"), {
       type: "bar",
       data: {
@@ -22,11 +68,10 @@ fetch("resultados.json")
           label: "Frecuencia Absoluta",
           data: valores,
           backgroundColor: coloresPaleta,
-          borderColor: "#1F2937",
+          borderColor: "#8B5CF6",
           borderWidth: 2,
           borderRadius: 20,
-          borderSkipped: false,
-          shadow: true
+          borderSkipped: false
         }]
       },
       options: {
@@ -37,7 +82,7 @@ fetch("resultados.json")
           legend: {
             display: true,
             labels: {
-              color: "#374151",
+              color: "#8B5CF6",
               font: { size: 12, weight: "600" },
               padding: 20
             }
@@ -46,7 +91,7 @@ fetch("resultados.json")
         scales: {
           x: {
             ticks: { color: "#6B7280" },
-            grid: { color: "rgba(0, 0, 0, 0.05)" }
+            grid: { color: "rgba(139, 92, 246, 0.1)" }
           },
           y: {
             ticks: { color: "#6B7280" }
@@ -55,7 +100,7 @@ fetch("resultados.json")
       }
     });
 
-    // Diagrama de pastel
+    // Diagrama de doughnut (Frecuencia Relativa)
     new Chart(document.getElementById("pastel"), {
       type: "doughnut",
       data: {
@@ -75,55 +120,10 @@ fetch("resultados.json")
           legend: {
             display: true,
             labels: {
-              color: "#374151",
+              color: "#3B82F6",
               font: { size: 12, weight: "600" },
               padding: 15
             }
-          }
-        }
-      }
-    });
-
-    // Polígono de frecuencias
-    new Chart(document.getElementById("poligono"), {
-      type: "line",
-      data: {
-        labels: colores,
-        datasets: [{
-          label: "Frecuencia Acumulada",
-          data: Object.values(data.frecuencia_acumulada),
-          borderColor: "#8B5CF6",
-          backgroundColor: "rgba(139, 92, 246, 0.2)",
-          fill: true,
-          borderWidth: 3,
-          pointBackgroundColor: "#22C55E",
-          pointBorderColor: "white",
-          pointBorderWidth: 3,
-          pointRadius: 7,
-          pointStyle: "circle",
-          tension: 0.4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: {
-            display: true,
-            labels: {
-              color: "#374151",
-              font: { size: 12, weight: "600" },
-              padding: 15
-            }
-          }
-        },
-        scales: {
-          y: {
-            ticks: { color: "#6B7280" },
-            grid: { color: "rgba(0, 0, 0, 0.05)" }
-          },
-          x: {
-            ticks: { color: "#6B7280" }
           }
         }
       }

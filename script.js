@@ -23,13 +23,35 @@ fetch("resultados.json")
           data: valores,
           backgroundColor: coloresPaleta,
           borderColor: "#1F2937",
-          borderWidth: 1,
-          borderRadius: 12
+          borderWidth: 2,
+          borderRadius: 20,
+          borderSkipped: false,
+          shadow: true
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true
+        maintainAspectRatio: true,
+        indexAxis: "y",
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: "#374151",
+              font: { size: 12, weight: "600" },
+              padding: 20
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#6B7280" },
+            grid: { color: "rgba(0, 0, 0, 0.05)" }
+          },
+          y: {
+            ticks: { color: "#6B7280" }
+          }
+        }
       }
     });
 
@@ -43,12 +65,22 @@ fetch("resultados.json")
           data: Object.values(data.frecuencia_relativa),
           backgroundColor: coloresPaleta,
           borderColor: "white",
-          borderWidth: 2
+          borderWidth: 3
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: "#374151",
+              font: { size: 12, weight: "600" },
+              padding: 15
+            }
+          }
+        }
       }
     });
 
@@ -61,19 +93,39 @@ fetch("resultados.json")
           label: "Frecuencia Acumulada",
           data: Object.values(data.frecuencia_acumulada),
           borderColor: "#8B5CF6",
-          backgroundColor: "rgba(139, 92, 246, 0.1)",
+          backgroundColor: "rgba(139, 92, 246, 0.2)",
           fill: true,
-          borderWidth: 2,
+          borderWidth: 3,
           pointBackgroundColor: "#22C55E",
           pointBorderColor: "white",
-          pointBorderWidth: 2,
-          pointRadius: 5,
-          tension: 0.3
+          pointBorderWidth: 3,
+          pointRadius: 7,
+          pointStyle: "circle",
+          tension: 0.4
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: "#374151",
+              font: { size: 12, weight: "600" },
+              padding: 15
+            }
+          }
+        },
+        scales: {
+          y: {
+            ticks: { color: "#6B7280" },
+            grid: { color: "rgba(0, 0, 0, 0.05)" }
+          },
+          x: {
+            ticks: { color: "#6B7280" }
+          }
+        }
       }
     });
   });

@@ -37,23 +37,24 @@ fetch("resultados.json")
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 2.2,
         plugins: {
           legend: {
             display: true,
             labels: {
               color: "#22C55E",
-              font: { size: 12, weight: "600" },
-              padding: 15
+              font: { size: 11, weight: "600" },
+              padding: 10
             }
           }
         },
         scales: {
           y: {
-            ticks: { color: "#6B7280" },
+            ticks: { color: "#6B7280", font: { size: 10 } },
             grid: { color: "rgba(34, 197, 94, 0.1)" }
           },
           x: {
-            ticks: { color: "#6B7280" }
+            ticks: { color: "#6B7280", font: { size: 10 } }
           }
         }
       }
@@ -77,24 +78,25 @@ fetch("resultados.json")
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 2.2,
         indexAxis: "y",
         plugins: {
           legend: {
             display: true,
             labels: {
               color: "#8B5CF6",
-              font: { size: 12, weight: "600" },
-              padding: 20
+              font: { size: 11, weight: "600" },
+              padding: 10
             }
           }
         },
         scales: {
           x: {
-            ticks: { color: "#6B7280" },
+            ticks: { color: "#6B7280", font: { size: 10 } },
             grid: { color: "rgba(139, 92, 246, 0.1)" }
           },
           y: {
-            ticks: { color: "#6B7280" }
+            ticks: { color: "#6B7280", font: { size: 10 } }
           }
         }
       }
@@ -116,13 +118,14 @@ fetch("resultados.json")
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 1.8,
         plugins: {
           legend: {
             display: true,
             labels: {
               color: "#3B82F6",
-              font: { size: 12, weight: "600" },
-              padding: 15
+              font: { size: 11, weight: "600" },
+              padding: 10
             }
           }
         }

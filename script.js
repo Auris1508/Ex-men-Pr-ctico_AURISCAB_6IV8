@@ -18,7 +18,9 @@ fetch("resultados.json")
         datasets: [{
           label: "Frecuencia Absoluta",
           data: valores,
-          backgroundColor: ["#f4d03f", "#58d68d", "#f0f3f4"]
+          backgroundColor: ["#1E90FF", "#00CED1", "#4169E1"],
+          borderColor: "#0F3460",
+          borderWidth: 1
         }]
       }
     });
@@ -31,7 +33,9 @@ fetch("resultados.json")
         datasets: [{
           label: "Frecuencia Relativa",
           data: Object.values(data.frecuencia_relativa),
-          backgroundColor: ["#f4d03f", "#58d68d", "#f0f3f4"]
+          backgroundColor: ["#1E90FF", "#00CED1", "#4169E1"],
+          borderColor: "white",
+          borderWidth: 1
         }]
       }
     });
@@ -44,8 +48,13 @@ fetch("resultados.json")
         datasets: [{
           label: "Frecuencia Acumulada",
           data: Object.values(data.frecuencia_acumulada),
-          borderColor: "#3498db",
-          fill: false
+          borderColor: "#00CED1",
+          backgroundColor: "rgba(0, 206, 209, 0.1)",
+          fill: true,
+          borderWidth: 2,
+          pointBackgroundColor: "#1E90FF",
+          pointRadius: 4,
+          tension: 0.3
         }]
       }
     });

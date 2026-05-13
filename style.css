@@ -1,12 +1,13 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #E8F4F8;
   text-align: center;
   margin: 20px;
 }
 
 h1 {
-  color: #2c3e50;
+  color: #0F3460;
+  margin-bottom: 20px;
 }
 
 canvas {
@@ -14,12 +15,21 @@ canvas {
   height: 300px;
   margin: 20px auto;
   display: block;
+  background: white;
+  border: 1px solid #B0E0E6;
+  border-radius: 5px;
 }
 
 #estadisticas {
-  background: #ecf0f1;
-  padding: 10px;
-  border-radius: 8px;
+  background: #D0EDF7;
+  padding: 15px;
+  border-radius: 5px;
   width: 300px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
+  border: 1px solid #7FD9E8;
+}
+
+#estadisticas p {
+  color: #0F3460;
+  margin: 8px 0;
 }
